@@ -3,6 +3,7 @@ package com.desafio.poi.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -45,6 +46,14 @@ public class PontoInteresseController {
     {
         List<PontoInteresseResponseDto> pontosInteresseResponseDtos = pontoInteresseService.listarPontosPorProximidade(pontosPorProximidadeRequestDto);
         return ResponseEntity.ok().body(pontosInteresseResponseDtos);
+    }
+
+
+    //Apenas para facilitar os testes
+    @DeleteMapping("/apagar")
+    public void apagarTodosOsPontos()
+    {
+        pontoInteresseService.apagarTodosOsPontos();
     }
 
 
