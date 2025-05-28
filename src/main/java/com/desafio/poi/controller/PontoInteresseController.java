@@ -1,6 +1,9 @@
 package com.desafio.poi.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +30,13 @@ public class PontoInteresseController {
         PontoInteresseResponseDto pontoInteresseResponseDto = pontoInteresseService.cadastrarPontoInteresse(pontoInteresseRequestDto);
 
         return ResponseEntity.ok().body(pontoInteresseResponseDto);
+    }
+
+    @GetMapping("/listar")
+    public ResponseEntity<List<PontoInteresseResponseDto>> listarPontosInteresse()
+    {
+        List<PontoInteresseResponseDto> pontosInteresseResponseDtos = pontoInteresseService.listarPontosInteresse();
+        return ResponseEntity.ok().body(pontosInteresseResponseDtos);
     }
     
 }
