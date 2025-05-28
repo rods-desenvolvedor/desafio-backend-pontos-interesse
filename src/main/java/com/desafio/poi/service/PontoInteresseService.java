@@ -1,5 +1,7 @@
 package com.desafio.poi.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.desafio.poi.controller.dtos.PontoInteresseRequestDto;
@@ -26,5 +28,12 @@ public class PontoInteresseService {
         pontoInteresseRepository.save(pontoInteresse);
 
         return new PontoInteresseResponseDto(pontoInteresse);
+    }
+
+    public List<PontoInteresseResponseDto> listarPontosInteresse()
+    {
+        List<PontoInteresse> pontosInteresse = pontoInteresseRepository.findAll();
+
+        return pontosInteresse.stream().map(PontoInteresseResponseDto::new).toList();
     }
 }
