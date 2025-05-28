@@ -1,0 +1,18 @@
+version: '3.8'
+
+
+services:
+  db:
+    image: postgres:latest
+    container_name: container_desafio_pontos_interesse
+    environment:
+      POSTGRES_USER: rods
+      POSTGRES_PASSWORD: 3001
+      POSTGRES_DB: db_pontos_interesse
+    ports:
+      - "5410:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: 
